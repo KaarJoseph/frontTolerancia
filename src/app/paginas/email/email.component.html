@@ -1,0 +1,23 @@
+<div class="email-container">
+    <h2 class="email-heading">Enviar Correo Electrónico</h2>
+    
+    <form (ngSubmit)="sendEmail()" #emailForm="ngForm">
+      <div class="form-group">
+        <label for="to">Para:</label>
+        <input type="email" id="to" name="to" [(ngModel)]="email.to" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="subject">Asunto:</label>
+        <input type="text" id="subject" name="subject" [(ngModel)]="email.subject" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="text">Contenido:</label>
+        <textarea id="text" name="text" [(ngModel)]="email.text" required></textarea>
+      </div>
+  
+      <button type="submit" [disabled]="!emailForm.valid">Enviar Correo</button>
+    </form>
+  </div>
+  

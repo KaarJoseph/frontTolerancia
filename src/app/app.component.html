@@ -1,0 +1,27 @@
+  <div class="encabezado">
+    <h1>Registro en Linea</h1>
+    <div class="menu">
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li>
+          <a href="pagina/cliente">Estudiantes</a>
+        </li>
+        <!--<li>
+          <a href="pagina/curso">Cursos</a>
+        </li>-->
+        <li><a href="pagina/profesor">Profesores</a></li>
+        <li><a href="pagina/email">Email</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cuerpo">
+    <router-outlet></router-outlet>
+    <app-inicio *ngIf="Inicio"></app-inicio>
+    <div *ngIf="BotonI" class="boton">
+      <button class="boton btn btn-outline-primary"><span><a href="pagina/cliente">Iniciar</a></span></button>
+    </div>
+  </div>
+  
+  
+

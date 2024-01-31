@@ -1,0 +1,72 @@
+.fondo{
+    display: flex;
+    position: absolute;
+    z-index: 0;
+    opacity: 0.5;
+    img{
+        min-width: auto;
+        height: 573px;     
+    }  
+    }
+    .titulo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 20px;
+    }
+    .formulario{
+        position: relative;
+        top: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        z-index: 1;
+        input{
+            height: 50px;
+            border: 0;
+            border-radius: 4px;
+            background-color: rgba(187, 186, 186, 0.774);
+            outline: none;
+            &:hover{
+                border-bottom: 2px solid black;
+            }
+        }
+    }
+    .ced-nom-ape-cor{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        float: right;
+    }
+    .con-cel-dir-bot{
+        top: -35px;
+        gap: 10px;
+        flex-wrap: wrap;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        float: left;
+    }
+    .tabla{
+        h2{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        position: relative;
+        top: 70px;
+        display: flex;
+        flex-direction: column;
+        .botonT{
+            border-radius: 4px;
+        }
+    }

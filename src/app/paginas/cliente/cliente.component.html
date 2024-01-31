@@ -1,0 +1,72 @@
+<div class="registro">
+    <div class="fondo">
+        <img class="img-fluid" src="../assets/imagenes/online-education.png" alt="centro">
+    </div>
+    <h1 class="titulo">Registrar Estudiante</h1>
+    <div class="formulario">
+        <div class="ced-nom-ape-cor">
+            <label class="form-label" for="txtNombre"><span>Cedula</span></label>
+            <input type="text" id="txtCedula" [(ngModel)]="cliente.cedula" placeholder="0101111111" required>
+            <label class="form-label" for="txtNombre"><span>Nombre</span></label>
+            <input type="text" id="txtNombre" [(ngModel)]="cliente.nombre" placeholder="Juan" required>
+            <label class="form-label" for="txtApellido"><span>Apellido</span></label>
+            <input type="text" id="txtApellido" [(ngModel)]="cliente.apellido" placeholder="Perez" required>
+            <label class="form-label" for="txtCorreo"><span>Correo</span></label>
+            <input type="text" id="txtCorreo" [(ngModel)]="cliente.correo" placeholder="Example@correo.com" required>
+        </div>
+        <div class="con-cel-dir-bot">
+            <label class="form-label" for="txtCorreo"><span>Contraseña</span></label>
+        <input type="password" id="txtContraseña" [(ngModel)]="cliente.contrasena" placeholder="*********" required>
+        <label class="form-label" for="txtCelular"><span>Celular</span></label>
+        <input type="text" id="txtCelular" [(ngModel)]="cliente.celular" placeholder="0999999999" required>
+        <label class="form-label" for="txtDireccion"><span>Direccion</span></label>
+        <input type="text" id="txtDireccion" [(ngModel)]="cliente.direccion" placeholder="Direccion 1" required>
+        <div><button id="boton" class="btn btn-outline-primary" (click)="guardarWS(cliente)">Registrarse</button></div>
+        <!--<div *ngIf="boton"><button class="bot btn btn-outline-primary" (click)="agregar(cliente)">Agregar Curso</button></div>-->
+        </div>
+    </div>
+</div>
+<div *ngIf="tabla" class="tabla container">
+    <h2>Tabla</h2>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+      <ng-container matColumnDef="Cedula"  >
+        <mat-header-cell  *matHeaderCellDef> Cedula </mat-header-cell>
+        <mat-cell *matCellDef="let cliente"> {{cliente.cedula}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Nombre">
+        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let cliente"> {{cliente.nombre}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Apellido">
+        <mat-header-cell *matHeaderCellDef> Apellido </mat-header-cell>
+        <mat-cell *matCellDef="let cliente"> {{cliente.apellido}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Celular">
+        <mat-header-cell *matHeaderCellDef> Celular </mat-header-cell>
+        <mat-cell *matCellDef="let cliente"> {{cliente.celular}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Correo">
+        <mat-header-cell *matHeaderCellDef> Correo </mat-header-cell>
+        <mat-cell *matCellDef="let cliente"> {{cliente.correo}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Direccion">
+        <mat-header-cell *matHeaderCellDef> Direccion </mat-header-cell>
+        <mat-cell *matCellDef="let cliente"> {{cliente.direccion}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Accion">
+       <mat-header-cell *matHeaderCellDef> Accion </mat-header-cell>
+        <mat-cell *matCellDef="let cliente">
+          <!--ngClass se utiliza para agregar clases dinamicamente en funcion de una condicion para agregar css al boton de la fila que va hacer editada con la
+          condicion de que selectedCliente sea igual a el cliente-->
+          <button class="botonT btn btn-outline-primary" [ngClass]="{ 'selected-row': cliente === selectedCliente }" (click)="editarWS(cliente)">Editar</button>
+          <button class="botonT btn btn-outline-primary" (click)="borrarWS(cliente)">Borrar</button>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <span *ngIf="listadoClienteWS.length == 0">
+      No existen contactos
+  </span>
+  </div>
+  

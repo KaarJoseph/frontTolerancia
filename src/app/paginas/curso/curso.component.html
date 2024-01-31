@@ -1,0 +1,42 @@
+<div class="registro">
+    <div class="fondo">
+        <img class="img-fluid" src="../assets/imagenes/online-education.png" alt="centro">
+    </div>
+    <h1 class="titulo">Registrar Curso</h1>
+    <div class="formulario">
+        <div class="ced-nom-ape-cor">
+            <label class="form-label" for="txtNombre"><span>Nombre del Curso</span></label>
+            <input type="text" id="txtCedula" [(ngModel)]="curso.nombre" placeholder="0101111111" required>
+            <label class="form-label" for="txtNombre"><span>Numero de horas</span></label>
+            <input type="number" id="txtNombre" [(ngModel)]="curso.numeroDeHoras" placeholder="Juan" required>
+            <div><button id="boton" class="btn btn-outline-primary" (click)="guardarWS(curso)">Registrarse</button></div>
+        </div>
+    </div>
+</div>
+<div *ngIf="tabla" class="tabla container">
+    <h2>Tabla</h2>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+      <ng-container matColumnDef="Nombre">
+        <mat-header-cell *matHeaderCellDef> Nombre del curso </mat-header-cell>
+        <mat-cell *matCellDef="let curso"> {{curso.nombre}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Horas">
+        <mat-header-cell *matHeaderCellDef> Numero de horas </mat-header-cell>
+        <mat-cell *matCellDef="let curso"> {{curso.numeroDeHoras}} </mat-cell>
+      </ng-container>
+     <ng-container matColumnDef="Accion">
+        <mat-header-cell *matHeaderCellDef> Accion </mat-header-cell>
+        <mat-cell *matCellDef="let curso">
+        <!--ngClass se utiliza para agregar clases dinamicamente en funcion de una condicion para agregar css al boton de la fila que va hacer editada con la
+          condicion de que selectedcurso sea igual a el curso-->
+          <button class="botonT btn btn-outline-primary" [ngClass]="{ 'selected-row': curso === selectedCurso }" (click)="editarWS(curso)">Editar</button>
+          <button class="botonT btn btn-outline-primary" (click)="borrarWS(curso)">Borrar</button>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <span *ngIf="listadoCursoWS.length == 0">
+      No existen contactos
+  </span>
+  </div> 
