@@ -54,5 +54,5 @@ export class ServicioService {
     // Servicio para Email
   sendEmail(email: Email) {
     return this.http.post<any>("http://localhost:8080/MicroserviciosRest/api/email/send", email);
-  }  
+  }          
 }
